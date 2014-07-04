@@ -14,6 +14,8 @@
 		2E2869D81967173800EEB76B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2869D61967173800EEB76B /* Main.storyboard */; };
 		2E2869DA1967173800EEB76B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2869D91967173800EEB76B /* Images.xcassets */; };
 		2E2869E61967173800EEB76B /* RGBArtiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2869E51967173800EEB76B /* RGBArtiOSTests.swift */; };
+		2E2869F0196730CC00EEB76B /* Frames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2869EF196730CC00EEB76B /* Frames.swift */; };
+		2E2869F2196733FD00EEB76B /* Frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E2869F1196733FD00EEB76B /* Frames.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2E2869DF1967173800EEB76B /* RGBArtiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGBArtiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2869E41967173800EEB76B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E2869E51967173800EEB76B /* RGBArtiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBArtiOSTests.swift; sourceTree = "<group>"; };
+		2E2869EF196730CC00EEB76B /* Frames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frames.swift; sourceTree = "<group>"; };
+		2E2869F1196733FD00EEB76B /* Frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Frames.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				2E2869D61967173800EEB76B /* Main.storyboard */,
 				2E2869D91967173800EEB76B /* Images.xcassets */,
 				2E2869CC1967173800EEB76B /* Supporting Files */,
+				2E2869EF196730CC00EEB76B /* Frames.swift */,
 			);
 			path = RGBArtiOS;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				2E2869CD1967173800EEB76B /* Info.plist */,
+				2E2869F1196733FD00EEB76B /* Frames.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2869F2196733FD00EEB76B /* Frames.plist in Resources */,
 				2E2869DA1967173800EEB76B /* Images.xcassets in Resources */,
 				2E2869D11967173800EEB76B /* GameScene.sks in Resources */,
 				2E2869D81967173800EEB76B /* Main.storyboard in Resources */,
@@ -216,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E2869D31967173800EEB76B /* GameScene.swift in Sources */,
+				2E2869F0196730CC00EEB76B /* Frames.swift in Sources */,
 				2E2869D51967173800EEB76B /* GameViewController.swift in Sources */,
 				2E2869CF1967173800EEB76B /* AppDelegate.swift in Sources */,
 			);
