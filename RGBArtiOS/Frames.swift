@@ -14,20 +14,31 @@ struct Frame {
     
     func base64Representation() -> String {
         
-        let regex = NSRegularExpression(pattern:"([a-z0-9]{2})\\s+([a-z0-9]{2})\\s+([a-z0-9]{2})\\s+([a-z0-9]{2})", options:NSRegularExpressionOptions.CaseInsensitive, error:nil)
+        let regex = NSRegularExpression(pattern:"([a-z0-9]{2})", options:NSRegularExpressionOptions.CaseInsensitive, error:nil)
         
-        NSLog("%i", regex.numberOfMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data))))
+        let numberOfBytes = regex.numberOfMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data)))
+        
+        var byteData = Byte[]()
         
         regex.enumerateMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data))) {
             (let r, let flags, var stop) in
             if let result:NSTextCheckingResult = r {
                 var hex:String = self.data.substringFromIndex(result.range.location)
                 hex = hex.substringToIndex(result.range.length) // TODO: use substringWithRange as soon as it works again...
-                NSLog("%@", hex)
+                hex = "0x" + hex.uppercaseString
+                
+                let scanner = NSScanner(string:hex)
+                var i:UInt32 = 0
+                if (scanner.scanHexInt(&i))
+                {
+                    byteData += Byte(i)
+                }
             }
         }
         
-        return data
+        let normalizedData = NSData(bytes: byteData, length: numberOfBytes)
+        
+        return normalizedData.base64EncodedStringWithOptions(nil)
     }
 }
 
