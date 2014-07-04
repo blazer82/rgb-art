@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        self.backgroundColor = SKColor.blackColor()
         
         var bitmapList = Frame[]()
         
@@ -36,10 +37,10 @@ class GameScene: SKScene {
         
         let sprite = SKSpriteNode(texture:texture);
         
-        let action = SKAction.animateWithTextures(textures, timePerFrame:1)
+        let action = SKAction.animateWithTextures(textures, timePerFrame:0.5)
         
-        sprite.xScale = 10.0
-        sprite.yScale = 10.0
+        sprite.xScale = 1.0
+        sprite.yScale = 1.0
         sprite.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
         sprite.runAction(SKAction.repeatActionForever(action))
