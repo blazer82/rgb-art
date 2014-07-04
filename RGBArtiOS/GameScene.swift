@@ -14,12 +14,8 @@ class GameScene: SKScene {
         /* Setup your scene here */
         self.backgroundColor = SKColor.blackColor()
         
-        var bitmapList = Frame[]()
-        
         let frames = Frames(resourceNamed:"Frames")
-        for frame in frames.frames {
-            bitmapList += frame
-        }
+        let bitmapList = frames.frames
         
         var textures = SKTexture[]()
         
@@ -31,11 +27,7 @@ class GameScene: SKScene {
             textures += texture
         }
         
-        let data = NSData(base64EncodedString:"/wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//", options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        
-        let texture = SKTexture(data:data, size: CGSize(width:12, height:9), flipped:true)
-        
-        let sprite = SKSpriteNode(texture:texture);
+        let sprite = SKSpriteNode(imageNamed:"sample");
         
         let action = SKAction.animateWithTextures(textures, timePerFrame:0.5)
         

@@ -25,7 +25,6 @@ struct Frame {
             if let result:NSTextCheckingResult = r {
                 var hex:String = self.data.substringFromIndex(result.range.location)
                 hex = hex.substringToIndex(result.range.length) // TODO: use substringWithRange as soon as it works again...
-                hex = "0x" + hex.uppercaseString
                 
                 let scanner = NSScanner(string:hex)
                 var i:UInt32 = 0
