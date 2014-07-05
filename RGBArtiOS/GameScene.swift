@@ -20,6 +20,7 @@ class GameScene: SKScene {
         var textures = SKTexture[]()
         
         for frame in bitmapList {
+            NSLog("%@", frame.data.base64EncodedStringWithOptions(nil))
             let texture = SKTexture(data:frame.data, size: CGSize(width:12, height:9), flipped:true)
             textures += texture
         }
@@ -28,8 +29,8 @@ class GameScene: SKScene {
         
         let action = SKAction.animateWithTextures(textures, timePerFrame:0.5)
         
-        sprite.xScale = 1.0
-        sprite.yScale = 1.0
+        sprite.xScale = 10.0
+        sprite.yScale = 10.0
         sprite.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
         sprite.runAction(SKAction.repeatActionForever(action))

@@ -31,6 +31,7 @@ class Frames {
             
             var byteData = Byte[]()
             
+            var byteCounter = 0
             regex.enumerateMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data))) {
                 (let r, let flags, var stop) in
                 if let result:NSTextCheckingResult = r {
@@ -41,12 +42,18 @@ class Frames {
                     var i:UInt32 = 0
                     if (scanner.scanHexInt(&i))
                     {
+                        byteCounter++
                         byteData += Byte(i)
+                        
+                        if (byteCounter % 3 == 0) {
+                            byteData += Byte(255)
+                            byteCounter = 0
+                        }
                     }
                 }
             }
 
-            frames += Frame(timeIndex:timeIndex, data:NSData(bytes: byteData, length: numberOfBytes))
+            frames += Frame(timeIndex:timeIndex, data:NSData(bytes: byteData, length: numberOfBytes / 3 * 4))
         }
     }
 }
