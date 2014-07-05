@@ -9,7 +9,7 @@
 import Foundation
 
 struct Frame {
-    var timeIndex:Int
+    var timeIndex:Float
     var data:NSData
 }
 
@@ -22,17 +22,17 @@ class Frames {
         frames = Frame[]()
         
         for entry in resource as NSDictionary[] {
-            let timeIndex = entry["timeIndex"] as NSNumber as Int
+            let timeIndex = entry["timeIndex"] as NSNumber as Float
             let data = entry["data"] as NSString as String
             
-            let regex = NSRegularExpression(pattern:"([a-z0-9]{2})", options:NSRegularExpressionOptions.CaseInsensitive, error:nil)
+            let regex = NSRegularExpression(pattern:"([a-z0-9]{2})", options:.CaseInsensitive, error:nil)
             
-            let numberOfBytes = regex.numberOfMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data)))
+            let numberOfBytes = regex.numberOfMatchesInString(data, options:.ReportCompletion, range:NSMakeRange(0, countElements(data)))
             
             var byteData = Byte[]()
             
             var byteCounter = 0
-            regex.enumerateMatchesInString(data, options:NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, countElements(data))) {
+            regex.enumerateMatchesInString(data, options:.ReportCompletion, range:NSMakeRange(0, countElements(data))) {
                 (let r, let flags, var stop) in
                 if let result:NSTextCheckingResult = r {
                     var hex:String = data.substringFromIndex(result.range.location)

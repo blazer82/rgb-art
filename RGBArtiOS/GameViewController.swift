@@ -25,7 +25,7 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +39,7 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             skView.presentScene(scene)
         }
@@ -60,6 +60,19 @@ class GameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    @IBAction func buttonTapped(AnyObject) {
+        NSLog("%@", "Button")
+        let skView = self.view as SKView
+        let scene = skView.scene as GameScene
+        
+        if (scene.active) {
+            scene.pause()
+        }
+        else {
+            scene.run()
+        }
     }
     
 }
