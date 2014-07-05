@@ -20,10 +20,7 @@ class GameScene: SKScene {
         var textures = SKTexture[]()
         
         for frame in bitmapList {
-            let data = NSData(base64EncodedString:frame.base64Representation(), options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-            
-            let texture = SKTexture(data:data, size: CGSize(width:12, height:9), flipped:true)
-            
+            let texture = SKTexture(data:frame.data, size: CGSize(width:12, height:9), flipped:true)
             textures += texture
         }
         
